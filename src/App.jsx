@@ -13,6 +13,7 @@ const App = () => {
 
     const addNewTask = () => {
      dispatch(storeTask(task));
+    setTask('')
     }
 
   return (
@@ -26,6 +27,7 @@ const App = () => {
           type="text"
           id="small-input"
           name="task"
+          value={task}
           onChange={handleInput}
           className="w-1/4 m-4 p-1 text-gray-900 border border-gray-300 rounded-lg   focus:ring-blue-500 "
         />
