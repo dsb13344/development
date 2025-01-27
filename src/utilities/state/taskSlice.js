@@ -8,13 +8,14 @@ name: "tasks",
     },
     reducers: {
         storeTask: (state,action) => {
-           state.tasks.push(action.payload);
+           state.tasks.push(action.payload)
         },
         removeTask: () => {
 
         }
     }
 })
-export default taskSlice.reducer;
+
 
 export const{storeTask,removeTask}=taskSlice.actions;
+export default taskSlice.reducer;

@@ -1,19 +1,20 @@
 import {useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {storeTask} from "./utilities/state/taskSlice.js";
 
 const App = () => {
 
-   const [task,setTask] = useState()
-    const dispatch = useDispatch();
+   const [task,setTask] = useState("")
+    const dispatch = useDispatch()
+    const alreadyAddedTask = useSelector(state=>state.alreadyAddedTask.tasks)
 
     const handleInput=(event)=>{
      setTask(event.target.value)
     }
 
     const addNewTask = () => {
-     dispatch(storeTask(task));
-    setTask('')
+     dispatch(storeTask(task))
+        setTask('')
     }
 
   return (
@@ -43,7 +44,11 @@ const App = () => {
     </div>
 
       <div>
-          {task}
+          {alreadyAddedTask.length > 0 && alreadyAddedTask.map((task)=>(
+              <div key={task}>
+                  {task}
+              </div>
+          ))}
       </div>
       </>
   );

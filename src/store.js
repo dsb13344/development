@@ -10,7 +10,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, taskReducer)
 export const store=configureStore({
     reducer: {
-     tasks:persistedReducer
+     alreadyAddedTask:persistedReducer
     }
 })
 
